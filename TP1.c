@@ -10,8 +10,8 @@ void secondTest();
 void thirdTest();
 
 int main() {
-    firstTest();
-    secondTest();
+    //firstTest();
+    //secondTest();
     thirdTest();
 }
 
@@ -85,5 +85,23 @@ void secondTest() {
 }
 
 void thirdTest() {
+    char* number1 = "96789543216";
+    char* number2 = "55555555555";
+    maillon_dcc* list1 = stringToList(number1);
+    maillon_dcc* list2 = stringToList(number2);
+    printf("Liste 1 :\n");
+    printList(list1);
+
+    printf("Liste 2 :\n");
+    printList(list2);
+    maillon_dcc* sumList = addLargeNumbers(list1, list2, list1, list2);
+
+    printf("Somme = ");
+    maillon_dcc* start = sumList;
+    do {
+        printf("%05d", sumList->value);  // pour garder le format de 5 chiffres
+        sumList = sumList->next;
+    } while (sumList != start);
+    printf("\n");
 
 }
